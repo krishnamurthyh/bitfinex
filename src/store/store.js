@@ -27,8 +27,8 @@ const connectWebSocket = () => {
 
     socket.onmessage = (event) => {
         const receivedData = JSON.parse(event.data)
-        if (receivedData.action) {
-            store.dispatch(websocketMessageReceived(receivedData?.data, receivedData.action))
+        if (receivedData.action && receivedData?.data.length > 0) {
+            store.dispatch(websocketMessageReceived(receivedData?.data.pop(), receivedData.action))
         }
     }
 };

@@ -25,8 +25,8 @@ const OrderBook = () => {
                 {orders.map(order =>
                 (
                     <tr key={order.id}>
-                        <td style={{ color: 'red' }}  >{order.side === 'Sell' ? order.price : ''}</td>
-                        <td style={{ color: 'green' }} >{order.side === 'Buy' ? order.price : ''}</td>
+                        <td style={{ color: 'red' }}  >{order?.side === 'Sell' ? order?.price : ''}</td>
+                        <td style={{ color: 'green' }} >{order?.side === 'Buy' ? order?.price : ''}</td>
                     </tr>
                 ))}
             </tbody>
@@ -37,6 +37,7 @@ const OrderBook = () => {
         <div>
             <button onClick={handleConnect}>Connect</button>
             <button onClick={handleDisconnect}>Disconnect</button>
+            {/* should use a library like D3 or whichever used in Bitfinex to implement the table */}
             {renderTable()}
 
         </div>
